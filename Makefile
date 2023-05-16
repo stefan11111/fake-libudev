@@ -1,15 +1,10 @@
 .POSIX:
 
 PREFIX = /usr/local
-LIBDIR = ${PREFIX}/lib
-INCLUDEDIR = ${PREFIX}/include
-PKGCONFIGDIR = ${LIBDIR}/pkgconfig
 XCFLAGS = ${CPPFLAGS} ${CFLAGS} -nostdlib -std=c99 -fPIC -pthread -D_XOPEN_SOURCE=700 \
 		  -Wall -Wextra -Wpedantic -Wmissing-prototypes -Wstrict-prototypes \
 		  -Wno-unused-parameter
 XLDFLAGS = ${LDFLAGS} -shared -Wl,-soname,libudev.so.1
-XARFLAGS = -rc
-AR = ar
 
 OBJ = \
 	  udev.o \
@@ -36,5 +31,4 @@ uninstall:
 clean:
 	rm -f libudev.so.1 libudev.a libudev.pc ${OBJ}
 
-.PHONY: all clean install-headers install-pkgconfig install-shared \
-	install-static install uninstall
+.PHONY: all clean install uninstall
