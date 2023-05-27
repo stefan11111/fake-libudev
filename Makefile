@@ -23,7 +23,7 @@ libudev.so.1: ${OBJ}
 install: libudev.so.1
 	mkdir -p ${DESTDIR}/lib64
 	cp -f libudev.so.1 ${DESTDIR}/lib64/libudev.so.1.fake
-	ln -sf ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
+	ln -rsf ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
 
 uninstall:
 	rm -f ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
