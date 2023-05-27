@@ -1,6 +1,5 @@
 .POSIX:
 
-PREFIX ?= /usr/local
 XCFLAGS = ${CPPFLAGS} ${CFLAGS} -nostdlib -std=c99 -fPIC -pthread -D_XOPEN_SOURCE=700 \
 		  -Wall -Wextra -Wpedantic -Wmissing-prototypes -Wstrict-prototypes \
 		  -Wno-unused-parameter
@@ -22,6 +21,7 @@ libudev.so.1: ${OBJ}
 	${CC} ${XCFLAGS} -o $@ ${OBJ} ${XLDFLAGS}
 
 install: libudev.so.1
+	mkdir -p ${DESTDIR}/lib64
 	cp -f libudev.so.1 ${DESTDIR}/lib64/libudev.so.1.fake
 	ln -sf ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
 
@@ -29,6 +29,6 @@ uninstall:
 	rm -f ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
 
 clean:
-	rm -f libudev.so.1 libudev.a libudev.pc ${OBJ}
+	rm -f libudev.so.1 ${OBJ}
 
 .PHONY: all clean install uninstall
