@@ -1,0 +1,8 @@
+prefix={{PREFIX}}
+exec_prefix={{PREFIX}}
+libdir={{ROOTLIBDIR}}
+includedir={{INCLUDE_DIR}}
+
+Name: libudev
+Description: Library to access udev device information
+Version: 250
