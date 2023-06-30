@@ -24,7 +24,8 @@ install: libudev.so.1
 	mkdir -p ${DESTDIR}/lib64
 	cp -f libudev.so.1 ${DESTDIR}/lib64/libudev.so.1.fake
 	ln -rsf ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
-
+	mkdir -p ${DESTDIR}/usr/lib64/pkgconfig
+	cp libudev.pc ${DESTDIR}/usr/lib64/pkgconfig
 uninstall:
 	rm -f ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
 
