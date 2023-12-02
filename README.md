@@ -1,7 +1,7 @@
 # fake-libudev
 
 Notice:
-I no longer use steam. In the last version of steam I tested, this wasn't needed any more.
+Seems like steam fixed it's shit and this hack is no longer needed.
 
 This is a placeholder shared library for libudev.
 I wrote this to get steam to work with a static /dev, as it only needs these functions to be defined, not to actually work.
