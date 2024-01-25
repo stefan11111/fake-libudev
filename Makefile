@@ -5,6 +5,8 @@ XCFLAGS = ${CPPFLAGS} ${CFLAGS} -nostdlib -std=c99 -fPIC -pthread -D_XOPEN_SOURC
 		  -Wno-unused-parameter
 XLDFLAGS = ${LDFLAGS} -shared -Wl,-soname,libudev.so.1
 
+LIBDIR ?= /lib64
+
 OBJ = \
 	  udev.o \
 	  udev_list.o \
@@ -21,13 +23,15 @@ libudev.so.1: ${OBJ}
 	${CC} ${XCFLAGS} -o $@ ${OBJ} ${XLDFLAGS}
 
 install: libudev.so.1
-	mkdir -p ${DESTDIR}/lib64
-	cp -f libudev.so.1 ${DESTDIR}/lib64/libudev.so.1.fake
-	ln -rsf ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
-	mkdir -p ${DESTDIR}/usr/lib64/pkgconfig
-	cp -f libudev.pc ${DESTDIR}/usr/lib64/pkgconfig
+	mkdir -p ${DESTDIR}${LIBDIR}
+	cp -f libudev.so.1 ${DESTDIR}${LIBDIR}/libudev.so.1.fake
+	ln -rsf ${DESTDIR}${LIBDIR}/libudev.so.1.fake ${DESTDIR}${LIBDIR}/libudev.so.1
+	mkdir -p ${DESTDIR}/usr${LIBDIR}/pkgconfig
+	cp -f libudev.pc ${DESTDIR}/usr${LIBDIR}/pkgconfig
+	mkdir -p /usr/include
+	cp -f libudev.h /usr/include
 uninstall:
-	rm -f ${DESTDIR}/lib64/libudev.so.1.fake ${DESTDIR}/lib64/libudev.so.1
+	rm -f ${DESTDIR}${LIBDIR}/libudev.so.1.fake ${DESTDIR}${LIBDIR}/libudev.so.1
 
 clean:
 	rm -f libudev.so.1 ${OBJ}
