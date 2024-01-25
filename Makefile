@@ -1,5 +1,7 @@
 .POSIX:
 
+CFLAGS ?= ${CFLAGS}
+
 XCFLAGS = ${CPPFLAGS} ${CFLAGS} -nostdlib -std=c99 -fPIC -pthread -D_XOPEN_SOURCE=700 \
 		  -Wall -Wextra -Wpedantic -Wmissing-prototypes -Wstrict-prototypes \
 		  -Wno-unused-parameter
