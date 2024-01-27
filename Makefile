@@ -26,6 +26,7 @@ install: libudev.so.1
 	mkdir -p ${DESTDIR}${LIBDIR}
 	cp -f libudev.so.1 ${DESTDIR}${LIBDIR}/libudev.so.1.fake
 	ln -rsf ${DESTDIR}${LIBDIR}/libudev.so.1.fake ${DESTDIR}${LIBDIR}/libudev.so.1
+	ln -rsf ${DESTDIR}${LIBDIR}/libudev.so.1 ${DESTDIR}${LIBDIR}/libudev.so
 	mkdir -p ${DESTDIR}/usr${LIBDIR}/pkgconfig
 	cp -f libudev.pc ${DESTDIR}/usr${LIBDIR}/pkgconfig
 	mkdir -p ${DESTDIR}/usr/include
