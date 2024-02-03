@@ -36,7 +36,7 @@ install: libudev.so.1
 	mkdir -p ${DESTDIR}/usr/include
 	cp -f libudev.h ${DESTDIR}/usr/include
 uninstall:
-	rm -f ${DESTDIR}${LIBDIR}/libudev.so.1.fake ${DESTDIR}${LIBDIR}/libudev.so.1 ${DESTDIR}${LIBDIR}/libudev.so ${DESTDIR}/usr${LIBDIR}/libudev.so.1.fake ${DESTDIR}/usr${LIBDIR}/libudev.so.1 ${DESTDIR}/usr${LIBDIR}/libudev.so ${DESTDIR}/usr/include/libudev.h
+	rm -f ${DESTDIR}${LIBDIR}/libudev.so.1.fake ${DESTDIR}${LIBDIR}/libudev.so.1 ${DESTDIR}${LIBDIR}/libudev.so ${DESTDIR}/usr${LIBDIR}/pkgconfig/libudev.pc ${DESTDIR}/usr${LIBDIR}/libudev.so.1.fake ${DESTDIR}/usr${LIBDIR}/libudev.so.1 ${DESTDIR}/usr${LIBDIR}/libudev.so ${DESTDIR}/usr/include/libudev.h
 
 clean:
 	rm -f libudev.so.1 ${OBJ}
